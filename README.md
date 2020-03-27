@@ -40,6 +40,15 @@ the message arguments be evaluated and the underlying logging implementation be
 invoked. By default that invocation will occur via an agent when inside a running
 STM transaction.
 
+```clojure 
+(require '[clojure.tools.logging :as log])
+
+(try
+  (log/info "Hello world!")
+  (catch Exception err
+    (log/error "oh no!" err)))
+```
+
 ### Namespacing of log entries
 
 Unless otherwise specified, the current namespace (as identified by `*ns*`) will
